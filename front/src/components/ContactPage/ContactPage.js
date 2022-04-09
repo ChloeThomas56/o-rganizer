@@ -45,7 +45,7 @@ const ContactPage  = () => {
 
                 <div className='contact__button'>
                     <Link to="/"> 
-                        <Btn text='Retour à l accueil'/>
+                        <Btn text='Retour' variant='contained' color='primary'/>
                     </Link>
                 </div>
             </div>

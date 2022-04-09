@@ -6,7 +6,15 @@ import React, { useState } from 'react';
 import './btn.scss';
 import LoadingButton from '@mui/lab/LoadingButton';
 
-const Btn = ({ text, icon, clicked, disabled, fullWidth }) => {
+const Btn = ({ 
+  text,
+  icon,
+  clicked,
+  disabled,
+  fullWidth,
+  variant,
+  color
+}) => {
   const [loading, setLoading] = useState(false);
   const handleClick = async (e) => {
     setLoading(true);
@@ -17,12 +25,13 @@ const Btn = ({ text, icon, clicked, disabled, fullWidth }) => {
   return (
     <LoadingButton
       onClick={handleClick}
-      variant='contained'
+      variant={variant}
       disabled={disabled}
       loading={loading}
       loadingIndicator='Loading...'
       fullWidth={fullWidth}
       size='large'
+      color={color}
     >
       <span className='btn__content'>
         {icon}
@@ -35,13 +44,20 @@ const Btn = ({ text, icon, clicked, disabled, fullWidth }) => {
 Btn.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.element,
+  clicked: PropTypes.func,
+  disabled: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  variant: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Btn.defaultProps = {
+  icon: null,
   clicked: () => console.log('clicked'),
   disabled: false,
   fullWidth: false,
-  icon: null,
+  variant: 'text',
+  color: 'secondary'
 };
 
 export default Btn;

@@ -1,19 +1,23 @@
+// import dependencies
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
-import './shiftsPage.scss';
+import PropTypes from 'prop-types';
+import { format } from "date-fns";
+import { NavLink } from 'react-router-dom';
+
+// import function
+import shiftService from '../../app/features/shiftHandling/shiftService';
+
+// import style and elements
+import './shifts.scss';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import shiftService from '../../app/features/shiftHandling/shiftService';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import { format } from "date-fns";
 import { Select, MenuItem } from '@mui/material';
-// import planningService from '../../app/features/planningHandling/PlanningService';
-import Btn from '../../components/Btn/Btn';
-import { NavLink } from 'react-router-dom';
+import Btn from '../Btn/Btn';
 
-const ShiftsPage = ({
+const Shifts = ({
     teamData,
     handleReload,
     planning
@@ -26,8 +30,6 @@ const ShiftsPage = ({
       findDayShift(newValue);
       handleReload();
     };
-
-    
 
     const findDayShift = (day) => {
         if(planning){
@@ -115,10 +117,10 @@ const ShiftsPage = ({
     }
 
     return (
-        <div className='shifts-page'>
-            <div className='shifts-page__container'>
-
-                <div className='shifts-page__calendar-container'>
+        <div className='shifts'>
+            <div className='shifts__container'>
+                <div className='shifts__title'>Gestion des factions</div>
+                <div className='shifts__calendar-container'>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <Stack spacing={3}>
                         <DesktopDatePicker
@@ -132,11 +134,11 @@ const ShiftsPage = ({
                 </LocalizationProvider>
                 </div>
 
-                <form className='shifts-page__team-form'>
-                    <div className='shifts-page__team-form-container'>
+                <form className='shifts__team-form'>
+                    <div className='shifts__team-form-container'>
                         {selectedShift.name ? teamData.map((team) => (
-                            <div className='shifts-page__team-container' key={team.id}>
-                                <div className='shifts-page__team-name'>{team.team}</div>
+                            <div className='shifts__team-container' key={team.id}>
+                                <div className='shifts__team-name'>{team.team}</div>
                                 <Select
                                     sx={{ width: 200, borderRadius: '3rem' }}
                                     labelId='demo-simple-select-label'
@@ -154,11 +156,11 @@ const ShiftsPage = ({
                             </div>
                         )) : findDayShift(dayValue)} 
                     </div> 
-                    <div className='shifts-page__btns'>
-                        <Btn text='Vider la faction' clicked={handleReset} />
-                        <Btn text='Valider' clicked={handleSubmit}/>
+                    <div className='shifts__buttons'>
+                        <Btn text='Vider la faction' clicked={handleReset} variant='contained' color='primary'/>
+                        <Btn text='Valider' clicked={handleSubmit} variant='contained' color='primary'/>
                         <NavLink to='/planning'>
-                            <Btn text='Retour'/>
+                            <Btn text='Retour' variant='contained' color='primary'/>
                         </NavLink>
                     </div>              
                 </form>
@@ -167,6 +169,6 @@ const ShiftsPage = ({
     )
 }
 
-ShiftsPage.propTypes = {}
+Shifts.propTypes = {}
 
-export default ShiftsPage
+export default Shifts

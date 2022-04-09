@@ -23,4 +23,4 @@ const HeaderContainer = () => {
   return <Header logout={handleLogout} user={user} isLoggedIn={isLoggedIn} />;
 };
 
-export default HeaderContainer;
+export default React.memo(HeaderContainer);

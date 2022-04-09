@@ -74,6 +74,10 @@ const UserModal = ({ user, open, handleCloseModal, handleReload }) => {
       onClose={handleModalReset}
       aria-labelledby='modal-modal-title'
       aria-describedby='modal-modal-description'
+      sx={{ 
+        overflow:'auto',
+        marginBottom: '2rem' 
+      }}
     >
       {user ? (
         <div className='user-modal'>
@@ -161,7 +165,7 @@ const UserModal = ({ user, open, handleCloseModal, handleReload }) => {
             </div>
           </div>
           <Button
-            sx={{ marginLeft: '45%', marginTop: 5 }}
+            sx={{ marginTop: 2 }}
             variant='contained'
             onClick={handleSubmit(handleModify)}
             type='submit'
@@ -250,7 +254,7 @@ const UserModal = ({ user, open, handleCloseModal, handleReload }) => {
             </div>
           </div>
           <Button
-            sx={{ marginLeft: '45%', marginTop: 5 }}
+            sx={{ marginTop: 2 }}
             variant='contained'
             onClick={handleSubmit(handleCreate)}
             type='submit'

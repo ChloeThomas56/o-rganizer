@@ -3,7 +3,6 @@
 .shift {
   display: flex;
   justify-content: flex-end;
-  padding: 0 -2rem;
 
   &:hover {
     background-color: #d1d1d1;
@@ -12,11 +11,12 @@
   &__date {
     width: 13%;
     margin: 1rem 0;
-    text-align: center;
+    padding-left: 0.5rem;
+    text-align: left;
   }
 
   &__week {
-    color: vars.$dark-purple;
+    color: vars.$dark-color;
   }
 
   &__team {
@@ -34,15 +34,15 @@
 
     &M {
       background-color: vars.$light-color;
-      border: 1px solid vars.$light-purple;
+      border: 1px solid vars.$dark-color;
     }
 
     &AM {
-      background-color: vars.$light-purple;
+      background-color: vars.$theme-color;
     }
 
     &N {
-      background-color: vars.$dark-purple;
+      background-color: vars.$dark-color;
       color: vars.$light-color;
     }
   }
@@ -51,14 +51,13 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: vars.$dark-purple;
+    background-color: vars.$dark-color;
     position: absolute;
     right: 0.5rem;
     top: 0.5rem;
     z-index: 1;
 
-    &AM,
-    &N {
+    &AM, &N {
       background-color: vars.$light-color;
     }
   }
@@ -67,17 +66,21 @@
 @media (max-width: 1400px) {
   .shift {
     font-size: 0.9rem;
+
+    &__event {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
   }
 }
 
 @media (max-width: 1200px) {
   .shift {
     font-size: 0.8rem;
-  }
-}
 
-@media (max-width: 768px) {
-  .shift {
-    font-size: 0.8rem;
+    &__event {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
   }
 }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 // import PropTypes from 'prop-types'
-import ShiftsPage from '../../components/ShiftsPage/ShiftsPage'
+import Shifts from '../../components/Shifts/Shifts'
 // import { useSelector } from 'react-redux';
 import planningService from '../../app/features/planningHandling/PlanningService';
 
-const ShiftsPageContainer = props => {
+const ShiftsContainer = props => {
     const [planning, setPlanning] = useState();
     const [membersData, setMembersData] = useState([]);
     const [reload, setReload] = useState(1);
@@ -18,10 +18,10 @@ const ShiftsPageContainer = props => {
           setReload(reload +1)
       }
     return (
-        <ShiftsPage teamData={membersData} handleReload={handleReload} planning={planning} />
+        <Shifts teamData={membersData} handleReload={handleReload} planning={planning} />
     )
 }
 
-ShiftsPageContainer.propTypes = {}
+ShiftsContainer.propTypes = {}
 
-export default ShiftsPageContainer
+export default ShiftsContainer

@@ -1,13 +1,13 @@
-import { format, getISOWeek, addDays } from 'date-fns';
+import { format, getISOWeek } from 'date-fns';
 
 import React, { useRef, useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import './shift.scss';
+import './calendarRow.scss';
 import Hover from '../Hover/Hover';
 
-const Shift = ({ date, teams, handleModal }) => {
+const CalendarRow = ({ date, teams, handleModal }) => {
   const [isShown, setIsShown] = useState(false);
   const [currentStatus, setCurrentStatus] = useState();
   const [position, setPosition] = useState();
@@ -70,7 +70,7 @@ const Shift = ({ date, teams, handleModal }) => {
   );
 };
 
-Shift.propTypes = {
+CalendarRow.propTypes = {
   date: PropTypes.string.isRequired,
   teams: PropTypes.arrayOf(
     PropTypes.shape({
@@ -89,9 +89,9 @@ Shift.propTypes = {
   ).isRequired,
 };
 
-Shift.defaultProps = {
+CalendarRow.defaultProps = {
   shift: '',
   status: null,
 };
 
-export default Shift;
+export default CalendarRow;

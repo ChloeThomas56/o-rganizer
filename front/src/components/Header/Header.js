@@ -8,13 +8,19 @@ import './header.scss';
 import { Button, Menu, MenuItem } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
+import GroupIcon from '@mui/icons-material/Group';
+import EventIcon from '@mui/icons-material/Event';
 
 // import elements
 import Btn from '../Btn/Btn';
 import logo from '../../assets/logo.png';
 import userAvatar from '../../assets/user.png';
 
-const Header = ({ logout, isLoggedIn, user }) => {
+const Header = ({ 
+  logout,
+  isLoggedIn,
+  user 
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -36,44 +42,59 @@ const Header = ({ logout, isLoggedIn, user }) => {
       {!isLoggedIn && (
         <div className='header__banner'>
           <img className='header__banner-logo' src={logo} alt='Logo' />
-          <h1 className='header__banner-title'>O'rganizer</h1>
+          <div className='header__banner-title'>'rganizer</div>
         </div>
       )}
       {isLoggedIn && (
         <div className='header__logged'>
-          <div className='header__user-info'>
+          <div className='header__user'>
             <NavLink to={`/user`}>
               <img
-                className='header__avatar'
+                className='header__user-avatar'
                 src={userAvatar}
                 alt='User avatar'
               />
             </NavLink>
-            <div className='header__user-info-details'>
-              <p className='header__user-info-number'>{user.reg_number}</p>
-              <p className='header__user-info-name'>
-                {user.name} {user.lastname}
-              </p>
-            </div>
+            <NavLink to={`/user`}>
+              <div className='header__user-details'>
+                <p className='header__user-number'>{user.reg_number}</p>
+                <p className='header__user-name'>
+                  {user.name} {user.lastname}
+                </p>
+              </div>
+            </NavLink>
           </div>
 
           <div className='header__buttons--desktop'>
-            <div className='header__button-container'>
+            <div className='header__buttons-container'>
               {user.role === 'admin' ? (
                 <React.Fragment>
-                  <Button variant='contained'>
-                    <Link to='users'>Gestion des utilisateurs</Link>
-                  </Button>
-                  <Button variant='contained'>
-                    <Link to='shifts'>Gestion des factions</Link>
-                  </Button>
+                  <Link to='users'>
+                      <Btn 
+                        text='Utilisateurs'
+                        icon={<GroupIcon />}
+                        variant='text' 
+                        fullWidth={true}
+                        color='secondary'
+                      />
+                  </Link>
+                  <Link to='shifts'>
+                      <Btn 
+                        text='Factions'
+                        icon={<EventIcon />}
+                        variant='text'
+                        fullWidth={true}
+                      />
+                  </Link>
                 </React.Fragment>
               ) : null}
-              <Btn
-                text='Se déconnecter'
-                icon={<LogoutIcon />}
-                clicked={logout}
-              />
+                <Btn
+                  text='Se déconnecter'
+                  icon={<LogoutIcon />}
+                  clicked={logout}
+                  variant='text'
+                  fullWidth={true}
+                />
             </div>
           </div>
 
@@ -87,7 +108,7 @@ const Header = ({ logout, isLoggedIn, user }) => {
                   aria-expanded={open ? 'true' : undefined}
                   onClick={handleClick}
                 >
-                  <MenuIcon fontSize='large' sx={{ color: 'white' }} />
+                  <MenuIcon fontSize='large' sx={{ color: '#0F172A' }} />
                 </Button>
                 <Menu
                   id='demo-positioned-menu'
@@ -105,16 +126,16 @@ const Header = ({ logout, isLoggedIn, user }) => {
                   }}
                 >
                   <MenuItem onClick={handleClose}>
-                    <Link to='users'>Gestion des utilisateurs</Link>
+                    <Link to='users'>Utilisateurs</Link>
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
-                    <Link to='shifts'>Gestion des factions</Link>
+                    <Link to='shifts'>Factions</Link>
                   </MenuItem>
                   <MenuItem onClick={handleLogout}>Se déconnecter</MenuItem>
                 </Menu>
               </div>
             ) : (
-              <Btn text='' icon={<LogoutIcon />} clicked={logout} />
+              <Btn text='' icon={<LogoutIcon />} clicked={logout} variant='text' />
             )}
           </div>
         </div>
@@ -125,10 +146,13 @@ const Header = ({ logout, isLoggedIn, user }) => {
 
 Header.propTypes = {
   logout: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  user: PropTypes.object,
 };
 
 Header.defaultProps = {
   logout: () => () => console.log('logout clicked'),
+  user: {},
 };
 
-export default Header;
+export default React.memo(Header);

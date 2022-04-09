@@ -35,7 +35,7 @@ const postShift = async (shiftData) => {
         {
         headers: authHeader(),
       });
-      toast.success(`Shift ajouté`);
+      toast.success(`Faction ajoutée`);
       return response;
     } catch (err) {
         toast.error('Erreur lors de la création du shift');

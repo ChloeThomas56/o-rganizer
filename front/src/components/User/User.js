@@ -73,18 +73,18 @@ const User = () => {
             {modif ? (
               <div className='user__content user__password-container'>
                 <TextField
-                  sx={{ width: 200 }}
+                  sx={{ width: 250 }}
                   id='password'
-                  label='Modifier votre mot de passe'
+                  label='Modifier'
                   name='password'
                   type='password'
                   value={formValues.password}
                   onChange={handleInputChange}
                 />
                 <TextField
-                  sx={{ width: 200 }}
+                  sx={{ width: 250 }}
                   id='confirmPassword'
-                  label='Confirmer votre mot de passe'
+                  label='Confirmer'
                   name='confirmPassword'
                   type='password'
                   value={formValues.confirmPassword}
@@ -109,13 +109,13 @@ const User = () => {
           </div>
           <div className='user__info-container'>
             <p className='user__title'>Equipe</p>
-            <p className='user__content'>{user.team}</p>
+            <p className='user__content'>{user.team ? user.team : '-'}</p>
           </div>
 
-          <div className='user__btns'>
-            {modif && <Btn text='Valider' clicked={handleSubmit} />}
+          <div className='user__buttons'>
+            {modif && <Btn text='Valider' clicked={handleSubmit} variant='contained' color='primary'/>}
             <NavLink to='/planning'>
-              <Btn text='Retour' />
+              <Btn text='Retour' variant='contained' color='primary'/>
             </NavLink>
           </div>
         </form>

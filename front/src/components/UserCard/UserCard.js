@@ -1,5 +1,8 @@
+// import dependencies
 import React from 'react';
 import UserService from '../../app/features/userHandling/UserService';
+
+// import style and elements
 import avatar from '../../assets/user.png';
 import { Button } from '@mui/material';
 import './usercard.scss';
@@ -17,7 +20,7 @@ const UserCard = ({ user, handleOpenModal, handleSetUser, handleReload }) => {
   };
   return (
     <div className='usercard'>
-      <img className='usercard__avatar' src={avatar} alt='profil' />
+      <img className='usercard__avatar' src={avatar} alt='Profil' />
       <div className='usercard__person'>
         <p className='usercard__name'>{`${user.lastname} ${user.name}`}</p>
         <p className='usercard__id'>{user.reg_number}</p>

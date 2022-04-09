@@ -115,10 +115,12 @@ const Modals = ({
     >
       {date ? (
         <div className='modal__container'>
-          <h1 className='modal__team--title'>{team}</h1>
-          <p className='modal___team--date'>
-            {format(new Date(date), 'dd/MM/yyyy')}
-          </p>
+          <div className='modal__header'>
+            <h1 className='modal__team-title'>{team}</h1>
+            <p className='modal__team-date'>
+              {format(new Date(date), 'dd/MM/yyyy')}
+            </p>
+          </div>
           <div className='modal__info-container'>
             {members[0].employees &&
               members[0].employees.map((e) => (
@@ -127,13 +129,13 @@ const Modals = ({
                   className='modal__form'
                   onSubmit={handleSubmit(handleSubmitForm)}
                 >
-                  <div className='modal__member--container'>
-                    <p className='modal__team--member'>
+                  <div className='modal__member-container'>
+                    <p className='modal__team-member'>
                       {e.firstName} {e.lastName}
                     </p>
                     <Select
                       {...register(`${e.id}`)}
-                      sx={{ width: 200 }}
+                      sx={{ width: '30%' }}
                       className='modal__select'
                       labelId='demo-simple-select-label'
                       id='demo-simple-select'
@@ -151,7 +153,7 @@ const Modals = ({
                     </Select>
                     <TextField
                       {...register(`comment-${e.id}`)}
-                      sx={{ width: 200 }}
+                      sx={{ width: '30%' }}
                       className='modal__input'
                       id='outlined-basic'
                       label='Commentaire'
@@ -163,7 +165,7 @@ const Modals = ({
               ))}
           </div>
           <Button
-            sx={{ marginLeft: '45%', marginTop: 5 }}
+            sx={{ marginTop: 5, width: 90, margin: '0 auto' }}
             variant='contained'
             onClick={handleSubmit(handleSubmitForm)}
             type='submit'

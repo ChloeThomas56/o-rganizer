@@ -3,13 +3,16 @@
 .usercard {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 95%;
   align-items: center;
-  margin: 20px auto;
-  column-gap: 1rem;
-  padding: 20px;
+  margin: 1.75rem auto;
+  padding: 1.5rem;
   border-radius: 25px;
-  background-color: rgba(206, 204, 204, 0.582);
+  background-color: rgba(217, 217, 217, 0.582);
+  
+  &__avatar {
+    width: 100px;
+  }
 
   &__person {
     display: flex;
@@ -17,19 +20,15 @@
     column-gap: 2rem;
   }
 
-  &__avatar {
-    width: 100px;
-  }
-
   &__name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     width: 250px;
-    color: vars.$dark-purple;
+    color: vars.$dark-color;
   }
 
   &__id, &__function, &__role, &__team {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   &__function {
@@ -37,7 +36,7 @@
   }
 
   &__role {
-    width: 150px;
+    width: 100px;
   }
 
   &__team {
@@ -45,13 +44,8 @@
     text-align: center;
   }
 
-  &__buttons {
-    display: flex;
-    column-gap: 1rem;
-  }
-
   &__button {
-    color: vars.$dark-purple;
+    color: vars.$dark-color;
   }
 }
 
@@ -68,10 +62,6 @@
     flex-direction: column;
     row-gap: 1rem;
 
-    &__person {
-      justify-content: left;
-    }
-
     &__function {
       width: 375px;
     }
@@ -87,16 +77,11 @@
     }
 
     &__name {
-      font-size: 1.3rem;
       width: 200px;
     }
 
     &__id, &__function, &__role, &__team {
       font-size: 1.1rem;
-    }
-    
-    &__function {
-      width: 300px;
     }
   }
 }
@@ -105,8 +90,8 @@
 
   .usercard {
 
-    &__person {
-      justify-content: center;
+    &__function {
+      width: 300px;
     }
   }
 }
@@ -118,11 +103,16 @@
     &__person {
       flex-direction: column;
       align-items: center;
+      margin: 0.8rem 0;
       row-gap: 0.5rem;
     }
 
     &__name, &__function, &__role {
       text-align: center;
+    }
+
+    &__id, &__role, &__function, &__team {
+      font-size: 1rem;
     }
   }
 }

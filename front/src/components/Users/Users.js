@@ -1,14 +1,18 @@
+// import dependencies
 import React, { useState, useEffect } from 'react';
 import UserService from '../../app/features/userHandling/UserService';
+import { Link } from 'react-router-dom';
+
+// import components
 import UserCard from '../UserCard/UserCard';
 import UserModal from '../UserModal/UserModal';
-import { Link } from 'react-router-dom';
+
+// import style and elements
 import { Button } from '@mui/material';
-import { AddCircleOutline } from '@mui/icons-material/';
+import AddIcon from '@mui/icons-material/Add';
+import './users.scss';
 
-import './userpage.scss';
-
-const UsersPage = () => {
+const Users = () => {
   const [users, setUsers] = useState();
   const [modalUser, setModalUser] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,22 +43,23 @@ const UsersPage = () => {
   };
 
   return (
-    <div className='users-page'>
+    <div className='users'>
       <UserModal
         open={isModalOpen}
         handleCloseModal={handleCloseModal}
         user={modalUser}
         handleReload={handleReload}
       />
-      <div className='users-page__header'>
+      <div className='users__title'>Gestion des utilisateurs</div>
+      <div className='users__buttons'>
         <Button variant='contained'>
-          <Link to='/planning'>Retour au planning</Link>
+          <Link to='/planning'>Retour</Link>
         </Button>
         <Button variant='contained' onClick={handleEmptyUser}>
-          <AddCircleOutline />
+          <AddIcon />
         </Button>
       </div>
-      <div className='users-page__main'>
+      <div className='users__main'>
         {users &&
           users.map((user) => (
             <UserCard
@@ -70,4 +75,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default Users;

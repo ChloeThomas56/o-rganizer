@@ -8,7 +8,7 @@
         width: 200px;
         background-color: vars.$light-color;
         border-radius: 5px;
-        border: 1px solid vars.$dark-purple;
+        border: 1px solid vars.$dark-color;
         padding: 1rem;
         text-align: left;
         font-size: 0.8rem;
@@ -19,7 +19,7 @@
     }
 
     &__status, &__replacement, &__comment {
-        color: vars.$dark-purple;
+        color: vars.$dark-color;
         padding-left: 1rem;
     }
 

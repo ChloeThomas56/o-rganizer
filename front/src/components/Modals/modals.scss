@@ -1,50 +1,85 @@
 @use 'src/styles/vars';
 
-.modal__team--title {
-  color: vars.$dark-purple;
-  text-align: center;
-  font-weight: 700;
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-}
-.modal___team--date {
-  color: vars.$dark-purple;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  text-align: center;
-}
-.modal__team--member {
-  display: block;
-}
-.modal__member--container {
-  display: flex;
+.modal {
 
-  align-items: center;
+  &__container {
+    background-color: vars.$light-color;
+    border: none;
+    border-radius: 25px;
+    height: 70vh;
+    margin: 15vh auto;
+    padding: 40px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
-  width: 80%;
-  justify-content: flex-end;
-  margin: 0 auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+  }
+
+  &__team-title {
+    color: vars.$dark-color;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  &__team-date {
+    color: vars.$dark-color;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  &__info-container {
+    margin-bottom: 1rem;
+  }
+
+  &__form {
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__member-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: flex-end;
+    margin: 0 auto;
+  }
+
+  &__team-member {
+    display: block;
+    width: 30%;
+    text-align: right;
+  }
+
+  &__select {
+    margin: 10px 30px;
+  }
+
+  &__input {
+    display: block;
+    margin: 10px 30px;
+  }
 }
 
-.modal__form {
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-}
+@media (max-width: 1000px) {
+  .modal {
 
-.modal__container {
-  background-color: vars.$light-color;
-  border: none;
-  border-radius: 25px;
-  margin: 10% auto;
-  padding: 40px;
-  width: 900px;
-}
-.modal__select {
-  margin: 10px 30px;
-}
-.modal__input {
-  display: block;
-  margin: 10px 30px;
+    &__container {
+      width: 90%;
+    }
+  }
 }

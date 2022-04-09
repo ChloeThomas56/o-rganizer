@@ -12,4 +12,4 @@ const FooterContainer = () => {
 
 FooterContainer.propTypes = {};
 
-export default FooterContainer;
+export default React.memo(FooterContainer);

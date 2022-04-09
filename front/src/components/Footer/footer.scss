@@ -1,51 +1,28 @@
 @use 'src/styles/vars';
 
 .footer {
-    position: relative;
-    background-color: vars.$dark-purple;
-    color: vars.$light-color;
-    padding: 1.3em;
     display: flex;
     justify-content: center;
-    column-gap: 3rem;
-    height: 57.6px;
-
-    &::before {
-        content:'';
-        position: absolute;
-        background-color: transparent;
-        bottom: 3.6rem;
-        right: 0;
-        height: 4rem;
-        width: 2rem;
-        border-bottom-right-radius: 2rem;
-        box-shadow: 0 2rem 0 0 vars.$dark-purple;
-    }
-
-    &__navlink:hover {
-        transform: scale(1.3);
-        transition-duration: 500ms;
-    }
+    align-items: center;
+    min-height: 60px;
+    border-top: solid 1px rgb(201, 201, 201);
 
     &__banner {
         display: flex;
         align-items: center;
-        column-gap: 0.5rem;
-
+    
         &-logo {
-            width: 40px;
-            filter: drop-shadow(0.5px 0.5px 1px #fafafa);
+          height: 40px;
         }
-
+    
         &-title {
-            font-family: vars.$special-font;
-            font-size: 1.5rem;
+          font-family: 'Barlow', sans-serif;
+          font-size: 1.4rem;
+          letter-spacing: 0.2rem;
         }
     }
-}
 
-@media (max-width: 1200px) {
-    .footer::before {
-        display: none;
+    &__link:hover {
+        color: vars.$theme-color;
     }
 }

@@ -6,9 +6,9 @@
 
   &__title {
     font-family: vars.$special-font;
-    color: vars.$dark-purple;
+    color: vars.$dark-color;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 4rem;
   }
 
@@ -23,7 +23,7 @@
 
   &__member {
     width: 20%;
-    color: vars.$dark-purple;
+    color: vars.$dark-color;
 
     &-avatar {
       border-radius: 50%;

@@ -1,12 +1,14 @@
 // import dependencies
+import React from 'react';
 import { useDispatch } from 'react-redux';
 // function
 import { login } from '../../app/features/userAuth/userAuthSlice';
 // components
-import Login from '../../components/Login/Login';
+import Home from '../../components/Home/Home';
 
-const LoginContainer = () => {
+const HomeContainer = () => {
   const dispatch = useDispatch();
+  
   const getLogin = (credentials) => {
     try {
       dispatch(login(credentials));
@@ -14,7 +16,8 @@ const LoginContainer = () => {
       console.log(err);
     }
   };
-  return <Login getLogin={getLogin} />;
+
+  return <Home getLogin={getLogin} />;
 };
 
-export default LoginContainer;
+export default React.memo(HomeContainer);

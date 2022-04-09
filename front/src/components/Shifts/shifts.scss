@@ -1,9 +1,19 @@
-.shifts-page {
+@use 'src/styles/vars';
+
+.shifts {
     padding: 4rem 0;
 
     &__container {
         width: 80%;
         margin: 0 auto;
+    }
+
+    &__title {
+        text-align: center;
+        font-family: vars.$special-font;
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 5rem;
     }
 
     &__calendar-container {
@@ -26,7 +36,7 @@
         margin-bottom: 1rem;
     }
 
-    &__btns {
+    &__buttons {
         margin-top: 2rem;
         display: flex;
         column-gap: 1rem;
@@ -35,13 +45,17 @@
 }
 
 @media (max-width: 1400px) {
-    .shifts-page__container {
+    .shifts__container {
         width: 100%;
     }
 }
 
 @media (max-width: 1000px) {
-    .shifts-page {
+    .shifts {
+
+        &__title {
+            margin-bottom: 3rem;
+        }
         
         &__team-form-container {
             flex-direction: column;
@@ -55,7 +69,7 @@
 }
 
 @media (max-width: 768px) {
-    .shifts-page__btns {
+    .shifts__buttons {
         flex-direction: column;
         align-items: center;
         row-gap: 1rem;

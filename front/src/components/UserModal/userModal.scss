@@ -1,10 +1,13 @@
+@use 'src/styles/vars';
+
 .user-modal {
-  background-color: #fff;
+  background-color: vars.$light-color;
   width: 70%;
   padding: 20px;
   border-radius: 25px;
   margin: 0 auto;
   margin-top: calc((100vh - 640px) / 2);
+  text-align: center;
 
   &__main {
     display: flex;
